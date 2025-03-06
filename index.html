@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Aid Payment Methods Comparison</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <script src="charts.js" defer></script>
+  <script src="taxBrackets.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Medical Aid Payment Methods: Financial Analysis</h1>
+    
+    <div class="card">
+      <h2>Overview</h2>
+      <p>
+        Choosing the right medical aid payment method can significantly impact your long-term financial health. 
+        This analysis examines the two primary payment approaches—salary deductions and personal payments—to 
+        help you make an informed decision based on concrete financial data and practical considerations.
+      </p>
+      
+      <div class="tax-info">
+        <h3>Tax Bracket Impact</h3>
+        <p>
+          Your tax bracket significantly affects the financial advantage of salary deductions. 
+          Since medical aid contributions through salary deductions are made before tax calculation, 
+          the higher your tax bracket, the greater your tax savings. Use the selector below to see 
+          how different tax brackets affect your potential savings.
+        </p>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>South African Tax Brackets (2024/2025)</h2>
+      <table class="tax-table">
+        <thead>
+          <tr>
+            <th>Taxable Income (ZAR)</th>
+            <th>Tax Rate</th>
+            <th>Potential Medical Aid Tax Savings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>R0 - R237,100</td>
+            <td>18%</td>
+            <td>Low (18% of contribution)</td>
+          </tr>
+          <tr>
+            <td>R237,101 - R370,500</td>
+            <td>26%</td>
+            <td>Moderate (26% of contribution)</td>
+          </tr>
+          <tr>
+            <td>R370,501 - R512,800</td>
+            <td>31%</td>
+            <td>Significant (31% of contribution)</td>
+          </tr>
+          <tr>
+            <td>R512,801 - R673,000</td>
+            <td>36%</td>
+            <td>High (36% of contribution)</td>
+          </tr>
+          <tr>
+            <td>R673,001 - R857,900</td>
+            <td>39%</td>
+            <td>Very High (39% of contribution)</td>
+          </tr>
+          <tr>
+            <td>R857,901 - R1,817,000</td>
+            <td>41%</td>
+            <td>Very High (41% of contribution)</td>
+          </tr>
+          <tr>
+            <td>R1,817,001+</td>
+            <td>45%</td>
+            <td>Maximum (45% of contribution)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="card">
+      <h2>Select Your Tax Bracket</h2>
+      <div class="tax-bracket-selector">
+        <button class="tax-bracket-btn" data-rate="18">18%</button>
+        <button class="tax-bracket-btn" data-rate="26">26%</button>
+        <button class="tax-bracket-btn" data-rate="31">31%</button>
+        <button class="tax-bracket-btn active" data-rate="36">36%</button>
+        <button class="tax-bracket-btn" data-rate="39">39%</button>
+        <button class="tax-bracket-btn" data-rate="41">41%</button>
+        <button class="tax-bracket-btn" data-rate="45">45%</button>
+      </div>
+      <p id="tax-explanation">
+        Currently showing calculations for the 36% tax bracket. This applies to annual taxable income 
+        between R512,801 - R673,000. In this bracket, salary deductions for medical aid provide a 36% 
+        tax saving on contributions.
+      </p>
+    </div>
+    
+    <div class="card">
+      <h2>Percentage Advantage Over Time</h2>
+      <div class="chart-container">
+        <canvas id="percentageChart"></canvas>
+      </div>
+      <p>
+        This chart illustrates how the financial advantage of salary deduction methods increases over time, 
+        especially when considering compounding effects and tax advantages. While the direct savings remain 
+        constant at 2.33%, the compounded advantage grows from 2.45% to 2.99% over a decade. When tax benefits 
+        are included, the advantage is substantially higher, with the exact percentage depending on your tax bracket.
+      </p>
+    </div>
+    
+    <div class="card">
+      <h2>Cumulative Financial Impact</h2>
+      <div class="chart-container">
+        <canvas id="cumulativeChart"></canvas>
+      </div>
+      <p>
+        This chart shows the growing monetary difference between payment methods over time. By year 10, 
+        the direct savings reach R4,200, while the compounded savings grow to R5,378. When tax advantages 
+        are included, the total benefit varies significantly based on your tax bracket.
+      </p>
+    </div>
+    
+    <div class="card">
+      <h2>Detailed Financial Projection</h2>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Salary Deduction (ZAR)</th>
+              <th>Personal Payment (ZAR)</th>
+              <th>Annual Difference</th>
+              <th>% Savings</th>
+              <th>Compounded Difference</th>
+              <th>Compounded % Improvement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>17,580</td>
+              <td>18,000</td>
+              <td>420</td>
+              <td>2.33%</td>
+              <td>441</td>
+              <td>2.45%</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>35,160</td>
+              <td>36,000</td>
+              <td>840</td>
+              <td>2.33%</td>
+              <td>903</td>
+              <td>2.51%</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>52,740</td>
+              <td>54,000</td>
+              <td>1,260</td>
+              <td>2.33%</td>
+              <td>1,389</td>
+              <td>2.57%</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>87,900</td>
+              <td>90,000</td>
+              <td>2,100</td>
+              <td>2.33%</td>
+              <td>2,431</td>
+              <td>2.70%</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>123,060</td>
+              <td>126,000</td>
+              <td>2,940</td>
+              <td>2.33%</td>
+              <td>3,564</td>
+              <td>2.83%</td>
+            </tr>
+            <tr class="highlight">
+              <td>10</td>
+              <td>175,800</td>
+              <td>180,000</td>
+              <td>4,200</td>
+              <td>2.33%</td>
+              <td>5,378</td>
+              <td>2.99%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>Tax Implications by Bracket</h2>
+      <div id="tax-tables-container">
+        <!-- Tax tables will be dynamically generated here -->
+      </div>
+      <p>
+        The tables above show how your tax bracket affects the financial advantage of salary deductions. 
+        Higher tax brackets result in greater tax savings, significantly enhancing the overall financial benefit.
+      </p>
+    </div>
+    
+    <div class="card">
+      <h2>Comparative Advantages</h2>
+      <div class="advantages">
+        <div class="advantage-card salary-advantage">
+          <h3>Salary Deduction Advantages</h3>
+          <ul>
+            <li><strong>Tax Efficiency:</strong> Contributions are typically made before tax calculation</li>
+            <li><strong>Employer Contributions:</strong> Many employers contribute a percentage of the premium</li>
+            <li><strong>Administrative Simplicity:</strong> Automatic deductions eliminate payment management</li>
+            <li><strong>Potential Discounts:</strong> Group schemes often negotiate better rates</li>
+          </ul>
+        </div>
+        <div class="advantage-card personal-advantage">
+          <h3>Personal Payment Considerations</h3>
+          <ul>
+            <li><strong>Freedom of Choice:</strong> Select any medical scheme regardless of employer</li>
+            <li><strong>Employment Independence:</strong> Coverage continues during job transitions</li>
+            <li><strong>Customization Options:</strong> Greater flexibility to adjust coverage levels</li>
+            <li><strong>Budgeting Control:</strong> Direct visibility of healthcare costs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="conclusion">
+      <h2>Conclusion</h2>
+      <p>
+        When properly accounting for percentage improvements over time, salary deductions offer increasingly 
+        better financial value—starting at 2.45% in the first year and growing to 2.99% by year ten through 
+        compounding effects alone. When including tax advantages, this improvement can reach significantly higher 
+        percentages depending on your tax bracket.
+      </p>
+      <p>
+        For individuals in higher tax brackets (39-45%), the financial advantage is particularly substantial, 
+        potentially saving tens of thousands of Rand over a decade. However, the right choice still depends on 
+        your specific circumstances, employment stability, and preference for flexibility versus efficiency.
+      </p>
+    </div>
+    
+    <div class="footer">
+      <p>
+        This analysis is based on South African tax brackets for the 2024/2025 tax year and standard industry practices. 
+        Individual results may vary based on specific employer policies, medical scheme terms, and personal tax situations. 
+        Consult with a financial advisor for personalized guidance.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
