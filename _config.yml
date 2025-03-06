@@ -1,0 +1,7 @@
+theme: minima
+
+baseurl: "/medical-aid-analysis"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
